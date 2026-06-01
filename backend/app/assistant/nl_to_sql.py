@@ -51,15 +51,22 @@ Database schema:
 - rates(rate_id, property_id, room_type, date, price_inr)
 - bookings(booking_id, property_id, room_type, checkin, checkout, status, amount_inr, source)
 
+Column notes:
+- bookings.status values: 'confirmed', 'cancelled', 'checked_out', 'no_show'
+- bookings.source values: 'direct', 'mmt' (MakeMyTrip), 'booking_com', 'agoda', 'whatsapp'
+- bookings.checkin and bookings.checkout are DATE columns
+
 Important rules:
 1. Generate ONLY a SELECT statement. No INSERT, UPDATE, DELETE, DROP, or other DDL/DML.
 2. Do NOT add a WHERE property_id = ... clause — the system will add it automatically.
 3. Do NOT use semicolons.
 4. Use only the tables and columns listed above. Do NOT invent columns.
-5. If the question cannot be answered with the schema, respond with: CANNOT_ANSWER
-6. Respond ONLY with the raw SQL query (no markdown, no explanation).
+5. For date filtering use: EXTRACT(MONTH FROM col), EXTRACT(YEAR FROM col), or col BETWEEN date1 AND date2.
+6. For "this month" / "is mahine" use EXTRACT(MONTH FROM checkin) = 6 AND EXTRACT(YEAR FROM checkin) = 2026.
+7. If the question cannot be answered with the schema, respond with: CANNOT_ANSWER
+8. Respond ONLY with the raw SQL query (no markdown, no explanation).
 
-Current month context: May 2026. "Is mahine" / "this month" = May 2026.
+Current date context: June 2026. "Is mahine" / "this month" = June 2026. "Aaj" = 2026-06-01.
 
 Question: {question}
 SQL:"""

@@ -9,7 +9,7 @@ pip install -r backend/requirements.txt pytest httpx
 pytest tests/ -v
 
 # Run against deployed backend
-BACKEND_URL=https://your-deployed-url.onrender.com pytest tests/ -v
+BACKEND_URL=https://ai-receptionist-x2zi.onrender.com pytest tests/ -v
 ```
 
 ## Test strategy

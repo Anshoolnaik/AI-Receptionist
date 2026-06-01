@@ -1,28 +1,75 @@
 """
-Engineering Capstone — backend skeleton (Part A + Part B). Fill the TODOs.
-TS/Deno equivalent is fine — mirror these contracts. The grade is in the guards.
+Engineering Capstone — Multi-Tenant Receptionist + Data Assistant
+FastAPI application entry point.
 """
+import asyncio
+import logging
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 
-app = FastAPI(title="Engineering Capstone")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+from app.database import init_pool, close_pool
+from app.queue.worker import queue_worker
+from app.assistant.rag import build_index
+from app.classifier.classify import get_p50_ms, get_p95_ms
 
-INTENTS = ["booking", "cancellation", "faq", "complaint", "wakeup"]
-CONFIDENCE_THRESHOLD = 0.6
+from app.routes.property import router as property_router
+from app.routes.message import router as message_router
+from app.routes.lifecycle import router as lifecycle_router
+from app.routes.ask import router as ask_router
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
-class Message(BaseModel):
-    property_id: str
-    guest_id: str
-    message_id: str
-    text: str
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # ── Startup ───────────────────────────────────────────────────────────────
+    logger.info("Starting up...")
+
+    # 1. Init DB connection pool
+    init_pool(minconn=1, maxconn=10)
+    logger.info("DB pool ready")
+
+    # 2. Build RAG index from kb/ files (once at startup)
+    build_index()
+
+    # 3. Start async queue worker
+    queue: asyncio.Queue = asyncio.Queue()
+    app.state.queue = queue
+    worker_task = asyncio.create_task(queue_worker(queue))
+    logger.info("Queue worker started")
+
+    yield
+
+    # ── Shutdown ──────────────────────────────────────────────────────────────
+    logger.info("Shutting down...")
+    await queue.join()        # drain remaining tasks
+    worker_task.cancel()
+    close_pool()
+    logger.info("Shutdown complete")
 
 
-class Ask(BaseModel):
-    property_id: str
-    question: str
+app = FastAPI(
+    title="Hotel Capstone API",
+    description="Multi-tenant receptionist + data assistant",
+    version="1.0.0",
+    lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ── Routes ────────────────────────────────────────────────────────────────────
+app.include_router(property_router)
+app.include_router(message_router)
+app.include_router(lifecycle_router)
+app.include_router(ask_router)
 
 
 @app.get("/health")
@@ -30,52 +77,10 @@ def health():
     return {"ok": True}
 
 
-# ---------- Part A: orchestration ----------
-@app.post("/property")
-def create_property(config: dict):
-    """Persist tenant + property_config, RLS-scoped. TODO."""
-    return {"stored": False}
-
-
-def classify(text: str, cfg: dict) -> tuple[str, float]:
-    """2-stage: rules → LLM fallback. Return (intent, confidence). TODO."""
-    return ("faq", 0.0)
-
-
-@app.post("/message")
-def handle_message(m: Message):
-    """
-    idempotent on message_id · classify · low-confidence→needs_human ·
-    cancellation+low-confidence→confirm (no destructive effect) ·
-    else WorkflowRegistry → ENQUEUE side-effect (not inline). All tenant-scoped. TODO.
-    """
-    return {"message_id": m.message_id, "intent": None, "status": "not_implemented"}
-
-
-@app.get("/events")
-def events(property_id: str):
-    return {"property_id": property_id, "events": []}
-
-
-@app.get("/bookings")
-def bookings(property_id: str):
-    return {"property_id": property_id, "items": []}
-
-
-# ---------- Part B: Data Assistant ----------
-def nl_to_sql(question: str, property_id: str) -> str:
-    """Guarded: force property_id filter in code; single read-only SELECT only;
-    validate tables/columns vs schema. Raise to block. TODO."""
-    raise NotImplementedError
-
-
-def rag_answer(question: str) -> dict:
-    """Retrieve from kb/, answer with {answer, source}. TODO."""
-    return {"answer": None, "source": None}
-
-
-@app.post("/ask")
-def ask(req: Ask):
-    """product-help→rag; else guarded nl_to_sql→read-only tenant-scoped run→{answer,sql,rows}.
-    unanswerable→refuse, don't fabricate. TODO."""
-    return {"answer": None, "sql": None, "rows": [], "note": "not_implemented"}
+@app.get("/metrics")
+def metrics():
+    """Classification latency stats (P50/P95 in ms)."""
+    return {
+        "classify_p50_ms": get_p50_ms(),
+        "classify_p95_ms": get_p95_ms(),
+    }

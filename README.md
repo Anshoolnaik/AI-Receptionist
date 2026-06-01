@@ -6,6 +6,50 @@ A single full-stack build that mirrors the real platform end to end. Three parts
 
 ---
 
+## Quick Start
+
+### 1. Database setup (Supabase)
+Run these SQL files in order in your Supabase SQL editor:
+```
+seed/schema.sql          → creates tables
+seed/data.sql            → seeds hotel_a + hotel_b
+seed/schema_additions.sql → adds messages/events tables + RLS policies
+```
+
+### 2. Backend
+```bash
+cd backend
+cp .env.example .env        # fill in DATABASE_URL and GROQ_API_KEY
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+
+### 3. Frontend
+```bash
+cd frontend
+npm install
+echo "VITE_BACKEND_URL=http://localhost:8000" > .env
+npm run dev                  # opens on http://localhost:5173
+```
+
+### 4. Mock OTA (optional bonus)
+```bash
+python mock_ota/mock_ota_server.py   # runs on :9000
+```
+
+### 5. Run all tests (one command)
+```bash
+pip install pytest httpx
+pytest tests/ -v
+```
+
+To run against a deployed backend:
+```bash
+BACKEND_URL=https://your-backend.onrender.com pytest tests/ -v
+```
+
+---
+
 ## Part A — Conversation Orchestration + Lifecycle (backend)
 A service exposing:
 - `POST /property` — register a tenant + `property_config` (custom FAQs, language). Seed both from `seed/properties.json`.

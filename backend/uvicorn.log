@@ -1,0 +1,187 @@
+INFO:     Started server process [14072]
+INFO:     Waiting for application startup.
+INFO:app.main:Starting up...
+INFO:app.main:DB pool ready
+INFO:app.assistant.rag:KB index built: 3 chunks from C:\Users\naika\Dropbox\PC\Downloads\starter-repo\starter-repo\kb
+INFO:app.main:Queue worker started
+INFO:app.queue.worker:Queue worker started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55741 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55743 - "POST /ask HTTP/1.1" 400 Bad Request
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:55745 - "POST /ask HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:54612 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:62902 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53085 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58326 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58326 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58326 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58326 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58326 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59606 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59610 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57952 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59622 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62902 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:51409 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60416 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65117 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51409 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54445 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62457 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54445 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62457 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62457 - "GET /events?property_id=hotel_a HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54445 - "GET /bookings?property_id=hotel_a HTTP/1.1" 200 OK

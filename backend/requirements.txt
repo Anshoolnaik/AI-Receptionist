@@ -3,4 +3,10 @@ uvicorn[standard]
 pydantic
 psycopg2-binary
 sqlparse
-pgvector
+groq
+httpx
+scikit-learn
+numpy
+python-dotenv
+pytest
+pytest-asyncio

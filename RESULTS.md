@@ -1,8 +1,8 @@
 # RESULTS — Engineering Capstone
 
 ## Live URLs
-- Backend: http://localhost:8000 (local) — deploy to Render/Railway for production URL
-- Console: http://localhost:5173 (local) — deploy to Vercel for production URL
+- Backend: https://ai-receptionist-x2zi.onrender.com
+- Console: (deploying to Vercel — URL to be added)
 
 ## Stack
 - **LLM**: Groq API — llama-3.3-70b-versatile (free tier)

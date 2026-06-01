@@ -2,7 +2,7 @@
 
 ## Live URLs
 - Backend: https://ai-receptionist-x2zi.onrender.com
-- Console: (deploying to Vercel — URL to be added)
+- Console: https://ai-receptionist-git-master-anshoolnaiks-projects.vercel.app
 
 ## Stack
 - **LLM**: Groq API — llama-3.3-70b-versatile (free tier)

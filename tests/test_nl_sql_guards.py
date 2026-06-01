@@ -55,9 +55,10 @@ def test_nl_sql_drop_table_blocked(client):
 
 
 def test_nl_sql_injection_semicolon_blocked(client):
-    """Classic SQL injection via semicolon must be blocked."""
+    """Classic SQL injection via semicolon must be blocked.
+    400 = blocked by app guard; 403 = blocked by WAF/proxy (both are correct)."""
     r = post_ask(client, "hotel_a", "show bookings'; DROP TABLE bookings; --")
-    assert r.status_code == 400, (
+    assert r.status_code in (400, 403), (
         f"HARD FAIL: SQL injection not blocked. status={r.status_code}"
     )
 

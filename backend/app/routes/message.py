@@ -21,14 +21,13 @@ from app.workflows.registry import dispatch
 from app.workflows.handoff import handle as handoff_handle
 from app.routes.property import get_property_config
 from app.config import CONFIDENCE_THRESHOLD
+from app.queue.tasks import EventLogTask
 
 router = APIRouter()
 
 
 @router.post("/message", response_model=MessageResponse)
 async def handle_message(m: Message, request: Request):
-    queue: asyncio.Queue = request.app.state.queue
-
     # ── 1. Idempotency check ──────────────────────────────────────────────────
     with rls_cursor(m.property_id) as cur:
         cur.execute(
@@ -54,6 +53,21 @@ async def handle_message(m: Message, request: Request):
 
     # ── 3. Classify ───────────────────────────────────────────────────────────
     intent, confidence = classify(m.text, property_cfg)
+
+    # ── 3b. Log message_received + intent_classified events ──────────────────
+    queue: asyncio.Queue = request.app.state.queue
+    await queue.put(EventLogTask(
+        property_id=m.property_id,
+        message_id=m.message_id,
+        event_type="message_received",
+        payload={"guest_id": m.guest_id, "text": m.text},
+    ))
+    await queue.put(EventLogTask(
+        property_id=m.property_id,
+        message_id=m.message_id,
+        event_type="intent_classified",
+        payload={"intent": intent, "confidence": confidence},
+    ))
 
     # ── 4. Determine status & route ───────────────────────────────────────────
     message_dict = m.model_dump()

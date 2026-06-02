@@ -26,7 +26,7 @@ async def handle(
             "room_type": "standard",
             "checkin": None,
             "checkout": None,
-            "status": "confirmed",
+            "status": "pending",
             "amount_inr": 0,
             "source": "direct",
         },
